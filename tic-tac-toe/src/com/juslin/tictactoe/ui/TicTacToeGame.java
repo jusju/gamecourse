@@ -8,18 +8,16 @@ import javax.swing.JFrame;
 
 public class TicTacToeGame extends JFrame {
 
-   private JButton btLeftUpmost = new JButton();
+   private JButton btLeftUpmost = new JButton("");
    
    public TicTacToeGame() {
-      JFrame testWindow = new JFrame();
-      testWindow.setSize(300, 300);
-      testWindow.setLocation(800, 400);
-      testWindow.setTitle("Tic Tac Toe");
-      testWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setSize(300, 300);
+      setLocation(300, 300);
+      setTitle("Tic Tac Toe");
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       ImageIcon img = new ImageIcon("images/icon.png");
-      testWindow.setIconImage(img.getImage());
+      setIconImage(img.getImage());
       setComponents();
-      testWindow.setVisible(true);
    }
    
    public void setComponents() {
@@ -27,10 +25,12 @@ public class TicTacToeGame extends JFrame {
       Container content = this.getContentPane();
       // Easiest to manage layout system
       content.setLayout(null);
-      
+      btLeftUpmost.setBounds(0, 0, 100, 100);
+      content.add(btLeftUpmost);
    }
    
    public static void main(String[] args) {
       TicTacToeGame frame = new TicTacToeGame();
+      frame.setVisible(true);
    }
 }
