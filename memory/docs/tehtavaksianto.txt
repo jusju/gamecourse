@@ -1,0 +1,3 @@
+Tee muistipeli, jossa on 36 korttia, jossa on eritelty muistettava kuvio kuhunkin korttiin.
+Peli‰ pelataan itse‰‰n vastaan. Tulokset tallennetaan tiedostoon jokaiselta kerralta.
+Peli on GridLayoutilla. Alhaalla on toinen paneeli, jossa toiminnot.

@@ -1,0 +1,5 @@
+INDEX VERSION 1.3+U:\tyotilat\syksy2017\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+859314806.index
+2659393615.index
+100311784.index
+990507781.index

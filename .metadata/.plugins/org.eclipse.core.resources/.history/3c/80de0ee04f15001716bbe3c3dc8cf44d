@@ -1,0 +1,17 @@
+package com.juslin.ui;
+
+import javax.swing.JFrame;
+
+public class FrameExample extends JFrame {
+
+	public FrameExample() {
+		JFrame testWindow = new JFrame();
+		testWindow.setSize(1500, 800);
+		testWindow.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		FrameExample frame = new FrameExample();
+	}
+}
+

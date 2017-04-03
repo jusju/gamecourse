@@ -1,0 +1,10 @@
+package com.juslin.ui;
+
+public class FrameExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

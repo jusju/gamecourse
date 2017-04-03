@@ -1,0 +1,18 @@
+package com.juslin.ui;
+
+import javax.swing.JFrame;
+
+public class FrameExample extends JFrame {
+
+	public FrameExample() {
+		JFrame testWindow = new JFrame();
+		testWindow.setSize(300, 300);
+		testWindow.setTitle("Clash of Clans");
+		testWindow.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		FrameExample frame = new FrameExample();
+	}
+}
+

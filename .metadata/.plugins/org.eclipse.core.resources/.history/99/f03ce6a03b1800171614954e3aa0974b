@@ -1,0 +1,5 @@
+package com.juslin.tictactoe.helper;
+
+public class WinnerFinder {
+
+}

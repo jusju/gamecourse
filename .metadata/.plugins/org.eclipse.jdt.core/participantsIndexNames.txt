@@ -1,0 +1,7 @@
+INDEX VERSION 1.127
+U:\tyotilat\syksy2017\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\990507781.index
+\teamblue
+U:\tyotilat\syksy2017\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\100311784.index
+\teamblue
+U:\tyotilat\syksy2017\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\859314806.index
+\teamblue
