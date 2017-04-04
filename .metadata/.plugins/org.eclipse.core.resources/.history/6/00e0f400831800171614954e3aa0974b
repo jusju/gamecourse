@@ -1,8 +1,6 @@
 package com.juslin.tictactoe.ui;
 
 import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,8 +15,8 @@ import javax.swing.JFrame;
  */
 public class TicTacToeGame extends JFrame {
 
-   // Button element. Convention in this material to
-   // use prefixes to hint the type of the object.
+   // Button element. Convention in this material to use prefixes to hint the
+   // type of the object.
    private JButton btLeftUpmost = new JButton("");
 
    public TicTacToeGame() {
@@ -55,28 +53,14 @@ public class TicTacToeGame extends JFrame {
       btLeftUpmost.setBounds(0, 0, 100, 100);
       // Added to the content
       content.add(btLeftUpmost);
-      // Connecting action listener to button
-      btLeftUpmost.addActionListener(new AlsUpperLeft());
    }
 
    public static void main(String[] args) {
-      // Create object of the same class - 
-      // needed to get out from static context
-      // in which Java programs should/could 
-      // never be by default developer since
+      // Create object of the same class - needed to get out from static context
+      // in which Java programs should/could never be by default developer since
       // this is object oriented programming
       TicTacToeGame frame = new TicTacToeGame();
-      // This method call is needed to really
-      // show the frame
+      // This method call is needed to really show the frame
       frame.setVisible(true);
-   }
-   
-   class AlsUpperLeft implements ActionListener {
-
-      @Override
-      public void actionPerformed(ActionEvent e) {
-         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
-         
-      }
    }
 }

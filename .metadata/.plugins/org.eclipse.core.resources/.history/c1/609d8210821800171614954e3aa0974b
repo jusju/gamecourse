@@ -1,0 +1,50 @@
+package com.juslin.tictactoe.ui;
+
+import java.awt.Container;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+/**
+ * First version of the game, which is third program of the material.
+ * Demonstrates addition of a button element and programming convention.
+ * 
+ * @author Jukka Juslin
+ *
+ */
+public class TicTacToeGame extends JFrame {
+
+   private JButton btLeftUpmost = new JButton("");
+
+   public TicTacToeGame() {
+      // The size of the window in pixels from left to right and up to down
+      setSize(300, 300);
+      // The location of the window on the computer screen of upper left corner
+      // to righ and then down
+      setLocation(300, 300);
+      // Title to be displayed
+      setTitle("Tic Tac Toe");
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      ImageIcon img = new ImageIcon("images/icon.png");
+      setIconImage(img.getImage());
+      setComponents();
+   }
+
+   public void setComponents() {
+      // Container, which is needed in Swing to draw this way
+      Container content = this.getContentPane();
+      // Easiest to manage layout system
+      content.setLayout(null);
+      // A way to setup location and size of the item with one line in pixels
+      btLeftUpmost.setBounds(0, 0, 100, 100);
+      // Added to the content
+      content.add(btLeftUpmost);
+   }
+
+   public static void main(String[] args) {
+      TicTacToeGame frame = new TicTacToeGame();
+      // This method call is needed to really show the frame
+      frame.setVisible(true);
+   }
+}

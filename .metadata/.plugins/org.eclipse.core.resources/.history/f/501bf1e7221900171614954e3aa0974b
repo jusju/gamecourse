@@ -55,7 +55,6 @@ public class TicTacToeGame extends JFrame {
       btLeftUpmost.setBounds(0, 0, 100, 100);
       // Added to the content
       content.add(btLeftUpmost);
-      // Connecting action listener to button
       btLeftUpmost.addActionListener(new AlsUpperLeft());
    }
 
@@ -78,5 +77,6 @@ public class TicTacToeGame extends JFrame {
          System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
          
       }
+      
    }
 }
