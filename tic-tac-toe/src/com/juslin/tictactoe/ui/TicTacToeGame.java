@@ -20,11 +20,19 @@ public class TicTacToeGame extends JFrame {
    // Button element. Convention in this material to
    // use prefixes to hint the type of the object.
    private JButton btLeftUpmost = new JButton("");
-
+   private JButton btRightUpmost = new JButton("");
+   private JButton btCenterUpmost = new JButton("");
+   private JButton btLeftCenter = new JButton("");
+   private JButton btCenterCenter = new JButton("");
+   private JButton btRightCenter = new JButton("");
+   private JButton btRightDownMost = new JButton("");
+   private JButton btCenterDownMost = new JButton("");
+   private JButton btLeftDownMost = new JButton("");
+   
    public TicTacToeGame() {
       // The size of the window in pixels 
       // from left to right and up to down
-      setSize(300, 300);
+      setSize(320, 340);
       // The location of the window on the 
       // computer screen of upper left corner
       // to righ and then down
@@ -53,8 +61,24 @@ public class TicTacToeGame extends JFrame {
       // A way to setup location and size 
       // of the item with one line in pixels
       btLeftUpmost.setBounds(0, 0, 100, 100);
+      btRightUpmost.setBounds(200, 0, 100, 100);
+      btCenterUpmost.setBounds(100, 0, 100, 100);
+      btLeftCenter.setBounds(0, 100, 100, 100);
+      btCenterCenter.setBounds(100, 100, 100, 100);
+      btRightCenter.setBounds(200, 100, 100, 100);
+      btRightDownMost.setBounds(0, 200, 100, 100);
+      btCenterDownMost.setBounds(100, 200, 100, 100);
+      btLeftDownMost.setBounds(200, 200, 100, 100);
       // Added to the content
       content.add(btLeftUpmost);
+      content.add(btRightUpmost);
+      content.add(btCenterUpmost);
+      content.add(btLeftCenter);
+      content.add(btCenterCenter);
+      content.add(btRightCenter);
+      content.add(btRightDownMost);
+      content.add(btCenterDownMost);
+      content.add(btLeftDownMost);
       // Connecting action listener to button
       btLeftUpmost.addActionListener(new AlsUpperLeft());
    }
@@ -72,11 +96,57 @@ public class TicTacToeGame extends JFrame {
    }
    
    class AlsUpperLeft implements ActionListener {
-
       @Override
       public void actionPerformed(ActionEvent e) {
          System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
-         
+      }
+   }
+   class AlsUpperRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsUpperCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsCenterLeft implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsCenterCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsCenterRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsDownMostRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsDownMostCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsDownMostLeft implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
       }
    }
 }
