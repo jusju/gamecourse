@@ -101,5 +101,52 @@ public class TicTacToeGame extends JFrame {
          System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
       }
    }
-
+   class AlsUpperRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsUpperCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsCenterLeft implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsCenterCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsCenterRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsDownMostRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsDownMostCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
+   class AlsDownMostLeft implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+      }
+   }
 }
