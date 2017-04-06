@@ -28,37 +28,38 @@ public class TicTacToeGame extends JFrame {
    private JButton btRightDownMost = new JButton("");
    private JButton btCenterDownMost = new JButton("");
    private JButton btLeftDownMost = new JButton("");
-   
+   private int numberOfChoicesMade = 0;
+
    public TicTacToeGame() {
-      // The size of the window in pixels 
+      // The size of the window in pixels
       // from left to right and up to down
       setSize(320, 340);
-      // The location of the window on the 
+      // The location of the window on the
       // computer screen of upper left corner
       // to righ and then down
       setLocation(300, 300);
       // Title to be displayed
       setTitle("Tic Tac Toe");
-      // Closing X on right upper corner does 
+      // Closing X on right upper corner does
       // not really work without this
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      // Reading image starting from path 
+      // Reading image starting from path
       // where project home is
       ImageIcon img = new ImageIcon("images/icon.png");
       setIconImage(img.getImage());
-      // Convention used in this material to 
+      // Convention used in this material to
       // separate graphical creation and
       // layout to separate method
       setComponents();
    }
 
    public void setComponents() {
-      // Container, which is needed 
+      // Container, which is needed
       // in Swing to draw this way
       Container content = this.getContentPane();
       // Easiest to manage layout system
       content.setLayout(null);
-      // A way to setup location and size 
+      // A way to setup location and size
       // of the item with one line in pixels
       btLeftUpmost.setBounds(0, 0, 100, 100);
       btRightUpmost.setBounds(200, 0, 100, 100);
@@ -81,12 +82,20 @@ public class TicTacToeGame extends JFrame {
       content.add(btLeftDownMost);
       // Connecting action listener to button
       btLeftUpmost.addActionListener(new AlsUpperLeft());
+      btRightUpmost.addActionListener(new AlsUpperRight());
+      btCenterUpmost.addActionListener(new AlsUpperCenter());
+      btLeftCenter.addActionListener(new AlsCenterLeft());
+      btCenterCenter.addActionListener(new AlsCenterCenter());
+      btRightCenter.addActionListener(new AlsCenterRight());
+      btRightDownMost.addActionListener(new AlsDownMostRight());
+      btCenterDownMost.addActionListener(new AlsDownMostCenter());
+      btLeftDownMost.addActionListener(new AlsDownMostLeft());
    }
 
    public static void main(String[] args) {
-      // Create object of the same class - 
+      // Create object of the same class -
       // needed to get out from static context
-      // in which Java programs should/could 
+      // in which Java programs should/could
       // never be by default developer since
       // this is object oriented programming
       TicTacToeGame frame = new TicTacToeGame();
@@ -94,12 +103,95 @@ public class TicTacToeGame extends JFrame {
       // show the frame
       frame.setVisible(true);
    }
-   
+
    class AlsUpperLeft implements ActionListener {
       @Override
       public void actionPerformed(ActionEvent e) {
-         System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+         if (numberOfChoicesMade < 3) {
+            System.out.println("TicTacToeGame.AlsUpperLeft.actionPerformed()");
+            btLeftUpmost.setText("X");
+            numberOfChoicesMade++;
+         }
       }
    }
 
+   class AlsUpperRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btRightUpmost.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
+
+   class AlsUpperCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btCenterUpmost.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
+
+   class AlsCenterLeft implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btLeftCenter.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
+
+   class AlsCenterCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btCenterCenter.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
+
+   class AlsCenterRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btRightCenter.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
+
+   class AlsDownMostRight implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btRightDownMost.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
+
+   class AlsDownMostCenter implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btCenterDownMost.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
+
+   class AlsDownMostLeft implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+         if (numberOfChoicesMade < 3) {
+            btLeftDownMost.setText("X");
+            numberOfChoicesMade++;
+         }
+      }
+   }
 }
