@@ -110,24 +110,76 @@ public class TicTacToeGame extends JFrame {
 		Random random = new Random();
 		boolean currentXOkay = false;
 		boolean currentYOkay = false;
+		int randomNumberX = 0;
+		int randomNumberY = 0;
 		do {
-			int randomNumberX = random.nextInt(3);
-			int randomNumberY = random.nextInt(3);
+			currentXOkay = false;
+			currentYOkay = false;
+			randomNumberX = random.nextInt(3);
+			randomNumberY = random.nextInt(3);
 			if (isFreeSlot(randomNumberX, randomNumberY)) {
 				currentXOkay = true;
 				currentYOkay = true;
 			}
-		} while (currentXOkay == true && currentYOkay == true);
-		btRightDownMost.setText("O");
+		} while (currentXOkay != true && currentYOkay != true);
+		System.out.println("P‰‰stiin ulos do-whilesta!!!");
+		boolean weAreReady = false;
+		while (weAreReady != true) {
+			for (int i = 0; i < 3; i++) {
+				if (weAreReady != true) {
+					for (int j = 0; j < 3; j++) {
+						if (matrix[i][j] != 1) {
+							if (i == 0 && j == 0) {
+								btLeftUpmost.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 0 && j == 1) {
+								btCenterUpmost.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 0 && j == 2) {
+								btRightUpmost.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 1 && j == 0) {
+								btLeftCenter.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 1 && j == 1) {
+								btCenterCenter.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 1 && j == 2) {
+								btRightCenter.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 2 && j == 0) {
+								btLeftDownMost.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 2 && j == 1) {
+								btCenterDownMost.setText("O");
+								weAreReady = true;
+								break;
+							} else if (i == 2 && j == 2) {
+								btRightDownMost.setText("O");
+								weAreReady = true;
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	public boolean isFreeSlot(int x, int y) {
-	   if(matrix[x][y] != 1) {
-		   return false;
-	   } else {
-		   return true;
-	   }
-   }
+		if (matrix[x][y] != 1) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	class AlsUpperLeft implements ActionListener {
 		@Override
@@ -150,6 +202,7 @@ public class TicTacToeGame extends JFrame {
 				btRightUpmost.setText("X");
 				numberOfChoicesMade++;
 				matrix[2][0] = 1;
+				doComputerAction();
 			}
 		}
 	}
@@ -161,6 +214,7 @@ public class TicTacToeGame extends JFrame {
 				btCenterUpmost.setText("X");
 				numberOfChoicesMade++;
 				matrix[1][0] = 1;
+				doComputerAction();
 			}
 		}
 	}
@@ -172,6 +226,7 @@ public class TicTacToeGame extends JFrame {
 				btLeftCenter.setText("X");
 				numberOfChoicesMade++;
 				matrix[0][1] = 1;
+				doComputerAction();
 			}
 		}
 	}
@@ -183,6 +238,7 @@ public class TicTacToeGame extends JFrame {
 				btCenterCenter.setText("X");
 				numberOfChoicesMade++;
 				matrix[1][1] = 1;
+				doComputerAction();
 			}
 		}
 	}
@@ -194,6 +250,7 @@ public class TicTacToeGame extends JFrame {
 				btRightCenter.setText("X");
 				numberOfChoicesMade++;
 				matrix[2][1] = 1;
+				doComputerAction();
 			}
 		}
 	}
@@ -205,6 +262,7 @@ public class TicTacToeGame extends JFrame {
 				btRightDownMost.setText("X");
 				numberOfChoicesMade++;
 				matrix[2][2] = 1;
+				doComputerAction();
 			}
 		}
 	}
@@ -216,6 +274,7 @@ public class TicTacToeGame extends JFrame {
 				btCenterDownMost.setText("X");
 				numberOfChoicesMade++;
 				matrix[1][2] = 1;
+				doComputerAction();
 			}
 		}
 	}
@@ -227,6 +286,7 @@ public class TicTacToeGame extends JFrame {
 				btLeftDownMost.setText("X");
 				numberOfChoicesMade++;
 				matrix[0][2] = 1;
+				doComputerAction();
 			}
 		}
 	}
