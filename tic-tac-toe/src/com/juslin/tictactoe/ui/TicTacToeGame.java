@@ -130,6 +130,7 @@ public class TicTacToeGame extends JFrame {
 					for (int j = 0; j < 3; j++) {
 						if (matrix[i][j] != 1) {
 							if (i == 0 && j == 0) {
+								System.out.println("Kikkelis");
 								btLeftUpmost.setText("O");
 								weAreReady = true;
 								break;
