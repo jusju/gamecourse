@@ -31,11 +31,12 @@ public class TicTacToeGame extends JFrame {
 	private JButton btLeftDownMost = new JButton("");
 	private int numberOfChoicesMade = 0;
 	private int[][] matrix = new int[3][3];
-
+	private int debuggerHelper = 0;
+	
 	public TicTacToeGame() {
 		// The size of the window in pixels
 		// from left to right and up to down
-		setSize(320, 340);
+		setSize(320, 450);
 		// The location of the window on the
 		// computer screen of upper left corner
 		// to righ and then down
@@ -124,6 +125,9 @@ public class TicTacToeGame extends JFrame {
 		} while (currentXOkay != true && currentYOkay != true);
 		System.out.println("P‰‰stiin ulos do-whilesta!!!");
 		boolean weAreReady = false;
+		if(debuggerHelper > 0) {
+			System.out.println("Tee t‰‰");
+		}
 		while (weAreReady != true) {
 			for (int i = 0; i < 3; i++) {
 				if (weAreReady != true) {
@@ -181,6 +185,7 @@ public class TicTacToeGame extends JFrame {
 				}
 			}
 		}
+		debuggerHelper++;
 	}
 
 	public boolean isFreeSlot(int x, int y) {
