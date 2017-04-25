@@ -132,38 +132,47 @@ public class TicTacToeGame extends JFrame {
 							if (i == 0 && j == 0) {
 								System.out.println("Kikkelis");
 								btLeftUpmost.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 0 && j == 1) {
 								btCenterUpmost.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 0 && j == 2) {
 								btRightUpmost.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 1 && j == 0) {
 								btLeftCenter.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 1 && j == 1) {
 								btCenterCenter.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 1 && j == 2) {
 								btRightCenter.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 2 && j == 0) {
 								btLeftDownMost.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 2 && j == 1) {
 								btCenterDownMost.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							} else if (i == 2 && j == 2) {
 								btRightDownMost.setText("O");
+								matrix[i][j] = 1;
 								weAreReady = true;
 								break;
 							}
