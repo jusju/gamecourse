@@ -29,6 +29,7 @@ public class TicTacToeGame extends JFrame {
 	private JButton btRightDownMost = new JButton("");
 	private JButton btCenterDownMost = new JButton("");
 	private JButton btLeftDownMost = new JButton("");
+	private JButton btPelaaUusi = new JButton("New Game");
 	private int numberOfChoicesMade = 0;
 	private int[][] matrix = new int[3][3];
 	private int debuggerHelper = 0;
@@ -73,6 +74,7 @@ public class TicTacToeGame extends JFrame {
 		btRightDownMost.setBounds(0, 200, 100, 100);
 		btCenterDownMost.setBounds(100, 200, 100, 100);
 		btLeftDownMost.setBounds(200, 200, 100, 100);
+		btPelaaUusi.setBounds(0, 380, 100, 30);
 		// Added to the content
 		content.add(btLeftUpmost);
 		content.add(btRightUpmost);
@@ -83,6 +85,7 @@ public class TicTacToeGame extends JFrame {
 		content.add(btRightDownMost);
 		content.add(btCenterDownMost);
 		content.add(btLeftDownMost);
+		content.add(btPelaaUusi);
 		// Connecting action listener to button
 		btLeftUpmost.addActionListener(new AlsUpperLeft());
 		btRightUpmost.addActionListener(new AlsUpperRight());
@@ -93,6 +96,7 @@ public class TicTacToeGame extends JFrame {
 		btRightDownMost.addActionListener(new AlsDownMostRight());
 		btCenterDownMost.addActionListener(new AlsDownMostCenter());
 		btLeftDownMost.addActionListener(new AlsDownMostLeft());
+		btPelaaUusi.addActionListener(new AlsNewGame());
 	}
 
 	public static void main(String[] args) {
@@ -195,7 +199,32 @@ public class TicTacToeGame extends JFrame {
 			return true;
 		}
 	}
-
+	class AlsNewGame implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// Button element. Convention in this material to
+			// use prefixes to hint the type of the object.
+			btLeftUpmost.setText("");
+			btRightUpmost.setText("");
+			btCenterUpmost.setText("");
+			btLeftCenter.setText("");
+			btCenterCenter.setText("");
+			btRightCenter.setText("");
+			btRightDownMost.setText("");
+			btCenterDownMost.setText("");
+			btLeftDownMost.setText("");
+			btPelaaUusi.setText("");
+			numberOfChoicesMade = 0;
+		
+			
+			for (int i = 0; i < matrix.length; i++) {
+				for (int j = 0; j < matrix.length; j++) {
+					matrix[i][j] = 0;
+				}
+			}
+		}
+	}
+	
 	class AlsUpperLeft implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
