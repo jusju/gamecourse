@@ -213,7 +213,6 @@ public class TicTacToeGame extends JFrame {
 			btRightDownMost.setText("");
 			btCenterDownMost.setText("");
 			btLeftDownMost.setText("");
-			btPelaaUusi.setText("");
 			numberOfChoicesMade = 0;
 		
 			
