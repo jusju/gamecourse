@@ -33,7 +33,7 @@ public class TicTacToeGame extends JFrame {
 	private int numberOfChoicesMade = 0;
 	private int[][] matrix = new int[3][3];
 	private int debuggerHelper = 0;
-	
+
 	public TicTacToeGame() {
 		// The size of the window in pixels
 		// from left to right and up to down
@@ -129,7 +129,7 @@ public class TicTacToeGame extends JFrame {
 		} while (currentXOkay != true && currentYOkay != true);
 		System.out.println("P‰‰stiin ulos do-whilesta!!!");
 		boolean weAreReady = false;
-		if(debuggerHelper > 0) {
+		if (debuggerHelper > 0) {
 			System.out.println("Tee t‰‰");
 		}
 		while (weAreReady != true) {
@@ -138,50 +138,68 @@ public class TicTacToeGame extends JFrame {
 					for (int j = 0; j < 3; j++) {
 						if (matrix[i][j] != 1) {
 							if (i == 0 && j == 0) {
-								System.out.println("Kikkelis");
-								btLeftUpmost.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									System.out.println("Kikkelis");
+									btLeftUpmost.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 0 && j == 1) {
-								btCenterUpmost.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btCenterUpmost.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 0 && j == 2) {
-								btRightUpmost.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btRightUpmost.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 1 && j == 0) {
-								btLeftCenter.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btLeftCenter.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 1 && j == 1) {
-								btCenterCenter.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btCenterCenter.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 1 && j == 2) {
-								btRightCenter.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btRightCenter.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 2 && j == 0) {
-								btLeftDownMost.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btLeftDownMost.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 2 && j == 1) {
-								btCenterDownMost.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btCenterDownMost.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							} else if (i == 2 && j == 2) {
-								btRightDownMost.setText("O");
-								matrix[i][j] = 1;
-								weAreReady = true;
+								if (matrix[i][j] != 1) {
+									btRightDownMost.setText("O");
+									matrix[i][j] = 1;
+									weAreReady = true;
+								}
 								break;
 							}
 						}
@@ -199,6 +217,7 @@ public class TicTacToeGame extends JFrame {
 			return true;
 		}
 	}
+
 	class AlsNewGame implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -214,8 +233,7 @@ public class TicTacToeGame extends JFrame {
 			btCenterDownMost.setText("");
 			btLeftDownMost.setText("");
 			numberOfChoicesMade = 0;
-		
-			
+
 			for (int i = 0; i < matrix.length; i++) {
 				for (int j = 0; j < matrix.length; j++) {
 					matrix[i][j] = 0;
@@ -223,7 +241,7 @@ public class TicTacToeGame extends JFrame {
 			}
 		}
 	}
-	
+
 	class AlsUpperLeft implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
