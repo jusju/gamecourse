@@ -208,6 +208,9 @@ public class TicTacToeGame extends JFrame {
 			}
 		}
 		debuggerHelper++;
+		if(numberOfChoicesMade == 3) {
+			System.out.println("Kolmatta.");
+		}
 	}
 
 	public boolean isFreeSlot(int x, int y) {
@@ -348,6 +351,8 @@ public class TicTacToeGame extends JFrame {
 				numberOfChoicesMade++;
 				matrix[0][2] = 1;
 				doComputerAction();
+			} else {
+				
 			}
 		}
 	}
