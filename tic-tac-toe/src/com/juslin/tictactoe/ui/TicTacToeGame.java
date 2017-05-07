@@ -213,7 +213,7 @@ public class TicTacToeGame extends JFrame {
 		debuggerHelper++;
 		if(numberOfChoicesMade == 3) {
 			System.out.println("Kolmatta.");
-			String wavFile = "centuryfox.wav";
+			String wavFile = "sound/centuryfox.wav";
 			Sound soundObj = new Sound(wavFile);
 			soundObj.play();
 		}
