@@ -9,6 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import com.juslin.tictactoe.helper.SimpleSound;
+import com.juslin.tictactoe.helper.Sound;
+
 /**
  * First version of the game, which is third program of the material.
  * Demonstrates addition of a button element and programming convention.
@@ -210,6 +213,9 @@ public class TicTacToeGame extends JFrame {
 		debuggerHelper++;
 		if(numberOfChoicesMade == 3) {
 			System.out.println("Kolmatta.");
+			String wavFile = "sound/centuryfox.wav";
+			Sound soundObj = new Sound(wavFile);
+			soundObj.play();
 		}
 	}
 

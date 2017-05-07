@@ -1,5 +1,4 @@
 package com.juslin.tictactoe.helper;
-
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import java.util.Properties;
