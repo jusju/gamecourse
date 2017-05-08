@@ -8,6 +8,7 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import com.juslin.tictactoe.helper.SimpleSound;
 import com.juslin.tictactoe.helper.Sound;
@@ -74,9 +75,10 @@ public class TicTacToeGame extends JFrame {
 		btLeftCenter.setBounds(0, 100, 100, 100);
 		btCenterCenter.setBounds(100, 100, 100, 100);
 		btRightCenter.setBounds(200, 100, 100, 100);
-		btRightDownMost.setBounds(0, 200, 100, 100);
+		btRightDownMost.setBounds(200, 200, 100, 100);
 		btCenterDownMost.setBounds(100, 200, 100, 100);
-		btLeftDownMost.setBounds(200, 200, 100, 100);
+		btLeftDownMost.setBounds(0, 200, 100, 100);
+		
 		btPelaaUusi.setBounds(0, 380, 100, 30);
 		// Added to the content
 		content.add(btLeftUpmost);
@@ -97,8 +99,10 @@ public class TicTacToeGame extends JFrame {
 		btCenterCenter.addActionListener(new AlsCenterCenter());
 		btRightCenter.addActionListener(new AlsCenterRight());
 		btRightDownMost.addActionListener(new AlsDownMostRight());
+		
 		btCenterDownMost.addActionListener(new AlsDownMostCenter());
 		btLeftDownMost.addActionListener(new AlsDownMostLeft());
+		
 		btPelaaUusi.addActionListener(new AlsNewGame());
 	}
 
@@ -136,71 +140,82 @@ public class TicTacToeGame extends JFrame {
 			System.out.println("Tee t‰‰");
 		}
 		while (weAreReady != true) {
+			if(numberOfChoicesMade == 2) {
+				System.out.println("Now we debug");
+			}
 			for (int i = 0; i < 3; i++) {
 				if (weAreReady != true) {
 					for (int j = 0; j < 3; j++) {
-						if (matrix[i][j] != 1) {
+						if (matrix[i][j] != 1 && matrix[i][j] != 2) {
 							if (i == 0 && j == 0) {
-								if (matrix[i][j] != 1) {
-									System.out.println("Kikkelis");
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("eka");
 									btLeftUpmost.setText("O");
-									matrix[i][j] = 1;
+									matrix[i][j] = 2;
 									weAreReady = true;
 								}
 								break;
 							} else if (i == 0 && j == 1) {
-								if (matrix[i][j] != 1) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("toka");
 									btCenterUpmost.setText("O");
-									matrix[i][j] = 1;
-									weAreReady = true;
-								}
-								break;
-							} else if (i == 0 && j == 2) {
-								if (matrix[i][j] != 1) {
-									btRightUpmost.setText("O");
-									matrix[i][j] = 1;
-									weAreReady = true;
-								}
-								break;
-							} else if (i == 1 && j == 0) {
-								if (matrix[i][j] != 1) {
-									btLeftCenter.setText("O");
-									matrix[i][j] = 1;
-									weAreReady = true;
-								}
-								break;
-							} else if (i == 1 && j == 1) {
-								if (matrix[i][j] != 1) {
-									btCenterCenter.setText("O");
-									matrix[i][j] = 1;
-									weAreReady = true;
-								}
-								break;
-							} else if (i == 1 && j == 2) {
-								if (matrix[i][j] != 1) {
-									btRightCenter.setText("O");
-									matrix[i][j] = 1;
+									matrix[i][j] = 2;
 									weAreReady = true;
 								}
 								break;
 							} else if (i == 2 && j == 0) {
-								if (matrix[i][j] != 1) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("kolmas");
+									btRightUpmost.setText("O");
+									matrix[i][j] = 2;
+									weAreReady = true;
+								}
+								break;
+							} else if (i == 1 && j == 0) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("neljas");
+									btLeftCenter.setText("O");
+									matrix[i][j] = 2;
+									weAreReady = true;
+								}
+								break;
+							} else if (i == 1 && j == 1) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("viides");
+									btCenterCenter.setText("O");
+									matrix[i][j] = 2;
+									weAreReady = true;
+								}
+								break;
+							} else if (i == 1 && j == 2) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("kuudes");
+									btRightCenter.setText("O");
+									matrix[i][j] = 2;
+									weAreReady = true;
+								}
+								break;
+							} else if (i == 2 && j == 0) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("seitsemas");
 									btLeftDownMost.setText("O");
-									matrix[i][j] = 1;
+									matrix[i][j] = 2;
 									weAreReady = true;
 								}
 								break;
 							} else if (i == 2 && j == 1) {
-								if (matrix[i][j] != 1) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("kahdeksas");
 									btCenterDownMost.setText("O");
-									matrix[i][j] = 1;
+									matrix[i][j] = 2;
 									weAreReady = true;
 								}
 								break;
 							} else if (i == 2 && j == 2) {
-								if (matrix[i][j] != 1) {
+								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println("yhdeksas");
 									btRightDownMost.setText("O");
-									matrix[i][j] = 1;
+									matrix[i][j] = 2;
 									weAreReady = true;
 								}
 								break;
@@ -211,12 +226,77 @@ public class TicTacToeGame extends JFrame {
 			}
 		}
 		debuggerHelper++;
-		if(numberOfChoicesMade == 3) {
-			System.out.println("Kolmatta.");
-			String wavFile = "sound/centuryfox.wav";
-			Sound soundObj = new Sound(wavFile);
-			soundObj.play();
+		if (numberOfChoicesMade == 3) {
+			if (detectIfYouWon()) {
+				JOptionPane.showMessageDialog(null, "Voitit pelin - onneksi olkoon!",
+						"Voitto",
+						JOptionPane.PLAIN_MESSAGE);
+
+				String wavFile = "sound/centuryfox.wav";
+				Sound soundObj = new Sound(wavFile);
+				soundObj.play();
+			} else if(detectIfComputerWon()) {
+				JOptionPane.showMessageDialog(null, "Tietokone voitti. H‰visit.",
+						"H‰viˆ",
+						JOptionPane.PLAIN_MESSAGE);			
+			} else {
+				JOptionPane.showMessageDialog(null, "Kukaan ei voittanut peli‰.",
+						"Ei voittajaa",
+						JOptionPane.PLAIN_MESSAGE);
+			}
+
 		}
+	}
+
+	public boolean detectIfYouWon() {
+		System.out.println("noi voititko?");
+		System.out.println(matrix[0][2]);
+		System.out.println(matrix[1][1]);
+		System.out.println(matrix[2][0]);
+		if (matrix[0][0] == 1 && matrix[1][0] == 1 && matrix[2][0] == 1) {
+			return true;
+		} else if (matrix[0][1] == 1 && matrix[1][1] == 1 && matrix[2][1] == 1) {
+			return true;
+		} else if (matrix[0][2] == 1 && matrix[1][2] == 1 && matrix[2][2] == 1) {
+			return true;
+		} else if (matrix[0][0] == 1 && matrix[0][1] == 1 && matrix[0][2] == 1) {
+			return true;
+		} else if (matrix[1][0] == 1 && matrix[1][1] == 1 && matrix[1][2] == 1) {
+			return true;
+		} else if (matrix[2][0] == 1 && matrix[2][1] == 1 && matrix[2][2] == 1) {
+			return true;
+		} else if (matrix[0][0] == 1 && matrix[1][1] == 1 && matrix[2][2] == 1) {
+			System.out.println("Ristiin 1");
+			return true;
+		} else if (matrix[0][2] == 1 && matrix[1][1] == 1 && matrix[2][0] == 1) {
+			System.out.println("Ristiin 2");
+			return true;
+		}
+
+		return false;
+	}
+
+	public boolean detectIfComputerWon() {
+
+		if (matrix[0][0] == 2 && matrix[1][0] == 2 && matrix[2][0] == 2) {
+			return true;
+		} else if (matrix[0][1] == 2 && matrix[1][1] == 2 && matrix[2][1] == 2) {
+			return true;
+		} else if (matrix[0][2] == 2 && matrix[1][2] == 2 && matrix[2][2] == 2) {
+			return true;
+		} else if (matrix[0][0] == 2 && matrix[0][1] == 2 && matrix[0][2] == 2) {
+			return true;
+		} else if (matrix[1][0] == 2 && matrix[1][1] == 2 && matrix[1][2] == 2) {
+			return true;
+		} else if (matrix[2][0] == 2 && matrix[2][1] == 2 && matrix[2][2] == 2) {
+			return true;
+		} else if (matrix[0][0] == 2 && matrix[1][1] == 2 && matrix[2][2] == 2) {
+			return true;
+		} else if (matrix[0][2] == 2 && matrix[1][1] == 2 && matrix[2][0] == 2) {
+			return true;
+		}
+
+		return false;
 	}
 
 	public boolean isFreeSlot(int x, int y) {
@@ -269,6 +349,8 @@ public class TicTacToeGame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (numberOfChoicesMade < 3) {
+				System.out
+						.println("TicTacToeGame.AlsUpperRight.actionPerformed()");
 				btRightUpmost.setText("X");
 				numberOfChoicesMade++;
 				matrix[2][0] = 1;
@@ -281,6 +363,8 @@ public class TicTacToeGame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (numberOfChoicesMade < 3) {
+				System.out
+						.println("TicTacToeGame.AlsUpperCenter.actionPerformed()");
 				btCenterUpmost.setText("X");
 				numberOfChoicesMade++;
 				matrix[1][0] = 1;
@@ -293,6 +377,8 @@ public class TicTacToeGame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (numberOfChoicesMade < 3) {
+				System.out
+						.println("TicTacToeGame.AlsCenterLeft.actionPerformed()");
 				btLeftCenter.setText("X");
 				numberOfChoicesMade++;
 				matrix[0][1] = 1;
@@ -305,6 +391,8 @@ public class TicTacToeGame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (numberOfChoicesMade < 3) {
+				System.out
+						.println("TicTacToeGame.AlsCenterCenter.actionPerformed()");
 				btCenterCenter.setText("X");
 				numberOfChoicesMade++;
 				matrix[1][1] = 1;
@@ -317,6 +405,8 @@ public class TicTacToeGame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (numberOfChoicesMade < 3) {
+				System.out
+						.println("TicTacToeGame.AlsCenterRight.actionPerformed()");
 				btRightCenter.setText("X");
 				numberOfChoicesMade++;
 				matrix[2][1] = 1;
@@ -329,6 +419,8 @@ public class TicTacToeGame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (numberOfChoicesMade < 3) {
+				System.out
+						.println("TicTacToeGame.AlsDownMostRight.actionPerformed()");
 				btRightDownMost.setText("X");
 				numberOfChoicesMade++;
 				matrix[2][2] = 1;
@@ -341,6 +433,8 @@ public class TicTacToeGame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (numberOfChoicesMade < 3) {
+				System.out
+						.println("TicTacToeGame.AlsDownMostCenter.actionPerformed()");
 				btCenterDownMost.setText("X");
 				numberOfChoicesMade++;
 				matrix[1][2] = 1;
@@ -355,10 +449,12 @@ public class TicTacToeGame extends JFrame {
 			if (numberOfChoicesMade < 3) {
 				btLeftDownMost.setText("X");
 				numberOfChoicesMade++;
+				System.out
+						.println("TicTacToeGame.AlsDownMostLeft.actionPerformed()");
 				matrix[0][2] = 1;
 				doComputerAction();
 			} else {
-				
+
 			}
 		}
 	}
