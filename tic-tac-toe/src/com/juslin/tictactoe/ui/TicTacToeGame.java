@@ -155,7 +155,7 @@ public class TicTacToeGame extends JFrame {
 									weAreReady = true;
 								}
 								break;
-							} else if (i == 0 && j == 1) {
+							} else if (i == 1 && j == 0) {
 								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
 									System.out.println("toka");
 									btCenterUpmost.setText("O");
@@ -171,8 +171,9 @@ public class TicTacToeGame extends JFrame {
 									weAreReady = true;
 								}
 								break;
-							} else if (i == 1 && j == 0) {
+							} else if (i == 0 && j == 1) {
 								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+									System.out.println(matrix[0][1]);
 									System.out.println("neljas");
 									btLeftCenter.setText("O");
 									matrix[i][j] = 2;
