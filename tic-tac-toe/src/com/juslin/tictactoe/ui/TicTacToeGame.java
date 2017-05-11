@@ -3,6 +3,7 @@ package com.juslin.tictactoe.ui;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -10,8 +11,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import org.xml.sax.SAXException;
+
 import com.juslin.tictactoe.helper.SimpleSound;
 import com.juslin.tictactoe.helper.Sound;
+import com.meterware.httpunit.WebConversation;
+import com.meterware.httpunit.WebResponse;
 
 /**
  * First version of the game, which is third program of the material.
@@ -34,6 +39,7 @@ public class TicTacToeGame extends JFrame {
 	private JButton btCenterDownMost = new JButton("");
 	private JButton btLeftDownMost = new JButton("");
 	private JButton btPelaaUusi = new JButton("New Game");
+	private JButton btHighScores = new JButton("High Scores");
 	private int numberOfChoicesMade = 0;
 	private int[][] matrix = new int[3][3];
 	private int debuggerHelper = 0;
@@ -78,7 +84,7 @@ public class TicTacToeGame extends JFrame {
 		btRightDownMost.setBounds(200, 200, 100, 100);
 		btCenterDownMost.setBounds(100, 200, 100, 100);
 		btLeftDownMost.setBounds(0, 200, 100, 100);
-		
+		btHighScores.setBounds(100, 380, 150, 30);
 		btPelaaUusi.setBounds(0, 380, 100, 30);
 		// Added to the content
 		content.add(btLeftUpmost);
@@ -91,6 +97,7 @@ public class TicTacToeGame extends JFrame {
 		content.add(btCenterDownMost);
 		content.add(btLeftDownMost);
 		content.add(btPelaaUusi);
+		content.add(btHighScores);
 		// Connecting action listener to button
 		btLeftUpmost.addActionListener(new AlsUpperLeft());
 		btRightUpmost.addActionListener(new AlsUpperRight());
@@ -104,6 +111,7 @@ public class TicTacToeGame extends JFrame {
 		btLeftDownMost.addActionListener(new AlsDownMostLeft());
 		
 		btPelaaUusi.addActionListener(new AlsNewGame());
+		btHighScores.addActionListener(new AlsHighScores());
 	}
 
 	public static void main(String[] args) {
@@ -188,7 +196,7 @@ public class TicTacToeGame extends JFrame {
 									weAreReady = true;
 								}
 								break;
-							} else if (i == 1 && j == 2) {
+							} else if (i == 2 && j == 1) {
 								if (matrix[i][j] != 1 && matrix[i][j] != 2) {
 									System.out.println("kuudes");
 									btRightCenter.setText("O");
@@ -458,5 +466,42 @@ public class TicTacToeGame extends JFrame {
 
 			}
 		}
+	}
+	class AlsHighScores implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+	
+			System.out.println("TicTacToeGame.AlsHighScores.actionPerformed()");
+			WebConversation wc = new WebConversation();
+			 WebResponse resp = null;
+			
+				try {
+					resp = wc.getResponse("http://osoitteet.palvelum.me");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SAXException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+             // muunnetaan vastaus merkkijonoksi
+             String huippuPisteet = "";
+			try {
+				huippuPisteet = resp.getText();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+             JOptionPane.showMessageDialog (null, 
+               		huippuPisteet, 
+        	           		"Ilmoituksen otsikko", 
+                     		JOptionPane.PLAIN_MESSAGE) ;
+			
+
+			
+		}
+		
 	}
 }
