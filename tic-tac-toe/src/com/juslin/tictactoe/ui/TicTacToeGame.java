@@ -40,6 +40,7 @@ public class TicTacToeGame extends JFrame {
 	private JButton btLeftDownMost = new JButton("");
 	private JButton btPelaaUusi = new JButton("New Game");
 	private JButton btHighScores = new JButton("High Scores");
+	private JButton btSetHighScore = new JButton("Set Score");
 	private int numberOfChoicesMade = 0;
 	private int[][] matrix = new int[3][3];
 	private int debuggerHelper = 0;
@@ -47,7 +48,7 @@ public class TicTacToeGame extends JFrame {
 	public TicTacToeGame() {
 		// The size of the window in pixels
 		// from left to right and up to down
-		setSize(320, 450);
+		setSize(370, 450);
 		// The location of the window on the
 		// computer screen of upper left corner
 		// to righ and then down
@@ -84,7 +85,8 @@ public class TicTacToeGame extends JFrame {
 		btRightDownMost.setBounds(200, 200, 100, 100);
 		btCenterDownMost.setBounds(100, 200, 100, 100);
 		btLeftDownMost.setBounds(0, 200, 100, 100);
-		btHighScores.setBounds(100, 380, 150, 30);
+		btHighScores.setBounds(100, 380, 120, 30);
+		btSetHighScore.setBounds(220, 380, 100, 30);
 		btPelaaUusi.setBounds(0, 380, 100, 30);
 		// Added to the content
 		content.add(btLeftUpmost);
@@ -98,6 +100,7 @@ public class TicTacToeGame extends JFrame {
 		content.add(btLeftDownMost);
 		content.add(btPelaaUusi);
 		content.add(btHighScores);
+		content.add(btSetHighScore);
 		// Connecting action listener to button
 		btLeftUpmost.addActionListener(new AlsUpperLeft());
 		btRightUpmost.addActionListener(new AlsUpperRight());
@@ -106,12 +109,13 @@ public class TicTacToeGame extends JFrame {
 		btCenterCenter.addActionListener(new AlsCenterCenter());
 		btRightCenter.addActionListener(new AlsCenterRight());
 		btRightDownMost.addActionListener(new AlsDownMostRight());
-		
+
 		btCenterDownMost.addActionListener(new AlsDownMostCenter());
 		btLeftDownMost.addActionListener(new AlsDownMostLeft());
-		
+
 		btPelaaUusi.addActionListener(new AlsNewGame());
 		btHighScores.addActionListener(new AlsHighScores());
+		btSetHighScore.addActionListener(new AlsSetScore());
 	}
 
 	public static void main(String[] args) {
@@ -148,7 +152,7 @@ public class TicTacToeGame extends JFrame {
 			System.out.println("Tee t‰‰");
 		}
 		while (weAreReady != true) {
-			if(numberOfChoicesMade == 2) {
+			if (numberOfChoicesMade == 2) {
 				System.out.println("Now we debug");
 			}
 			for (int i = 0; i < 3; i++) {
@@ -237,20 +241,20 @@ public class TicTacToeGame extends JFrame {
 		debuggerHelper++;
 		if (numberOfChoicesMade == 3) {
 			if (detectIfYouWon()) {
-				JOptionPane.showMessageDialog(null, "Voitit pelin - onneksi olkoon!",
-						"Voitto",
+				JOptionPane.showMessageDialog(null,
+						"Voitit pelin - onneksi olkoon!", "Voitto",
 						JOptionPane.PLAIN_MESSAGE);
 
 				String wavFile = "sound/centuryfox.wav";
 				Sound soundObj = new Sound(wavFile);
 				soundObj.play();
-			} else if(detectIfComputerWon()) {
-				JOptionPane.showMessageDialog(null, "Tietokone voitti. H‰visit.",
-						"H‰viˆ",
-						JOptionPane.PLAIN_MESSAGE);			
+			} else if (detectIfComputerWon()) {
+				JOptionPane.showMessageDialog(null,
+						"Tietokone voitti. H‰visit.", "H‰viˆ",
+						JOptionPane.PLAIN_MESSAGE);
 			} else {
-				JOptionPane.showMessageDialog(null, "Kukaan ei voittanut peli‰.",
-						"Ei voittajaa",
+				JOptionPane.showMessageDialog(null,
+						"Kukaan ei voittanut peli‰.", "Ei voittajaa",
 						JOptionPane.PLAIN_MESSAGE);
 			}
 
@@ -467,17 +471,61 @@ public class TicTacToeGame extends JFrame {
 			}
 		}
 	}
+
 	class AlsHighScores implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-	
+
 			System.out.println("TicTacToeGame.AlsHighScores.actionPerformed()");
 			WebConversation wc = new WebConversation();
-			 WebResponse resp = null;
-			
+			WebResponse resp = null;
+
+			try {
+				resp = wc
+						.getResponse("http://palvelum.me/highscore/ScoreListServlet");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SAXException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// muunnetaan vastaus merkkijonoksi
+			String huippuPisteet = "";
+			try {
+				huippuPisteet = resp.getText();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(null, huippuPisteet, "High Scores",
+					JOptionPane.PLAIN_MESSAGE);
+		}
+
+	}
+
+	class AlsSetScore implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// ANTAA AINA 20 PISTETTƒ....
+			System.out.println("TicTacToeGame.AlsSetScore.actionPerformed()");
+			String nimi;
+
+			nimi = JOptionPane.showInputDialog("Anna nimesi: ");
+
+			if (nimi == null) {
+
+			} else {
+
+				WebConversation wc = new WebConversation();
+				WebResponse resp = null;
+
 				try {
-					resp = wc.getResponse("http://osoitteet.palvelum.me");
+					resp = wc
+							.getResponse("http://palvelum.me/highscore/PointServlet?nickname=" + nimi + "&points=20");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -485,23 +533,18 @@ public class TicTacToeGame extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-	
-             // muunnetaan vastaus merkkijonoksi
-             String huippuPisteet = "";
-			try {
-				huippuPisteet = resp.getText();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-             JOptionPane.showMessageDialog (null, 
-               		huippuPisteet, 
-        	           		"Ilmoituksen otsikko", 
-                     		JOptionPane.PLAIN_MESSAGE) ;
-			
 
-			
+				// muunnetaan vastaus merkkijonoksi
+				String huippuPisteet = "";
+				try {
+					huippuPisteet = resp.getText();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+
+			}
 		}
-		
 	}
 }
